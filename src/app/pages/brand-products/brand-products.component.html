@@ -1,0 +1,23 @@
+@if (detailsBrand) {
+<section>
+  <div
+    class="container bg-main-bg p-6 flex flex-col items-center md:flex-row shadow-2xl border-2 mt-6 rounded-lg"
+  >
+    <div class="w-full p-4 flex items-start gap-6">
+      <img [src]="detailsBrand.image" class="rounded-md" alt="" />
+      <div>
+        <h2 class="text-2xl font-bold">Brand : {{ detailsBrand.name }}</h2>
+        <p class="text-lg font-semibold">
+          Product Name : {{ detailsBrand.slug }}
+        </p>
+        <p class="text-lg font-semibold">
+          created At : {{ detailsBrand.createdAt }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="container bg-main-bg p-6 flex flex-col items-center md:flex-row shadow-2xl border-2 mt-6 rounded-lg"
+  ></div>
+</section>
+}

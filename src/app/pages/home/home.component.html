@@ -1,0 +1,288 @@
+<section>
+  <div class="container mx-auto p-4">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+      <!-- Main Banner -->
+      <div class="col-span-1 md:col-span-4 rounded-lg overflow-hidden">
+        <owl-carousel-o [options]="customMainSlider">
+          <ng-template carouselSlide
+            ><img src="/images/img12.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+          <ng-template carouselSlide
+            ><img src="/images/img13.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+          <ng-template carouselSlide
+            ><img src="/images/img5.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+          <ng-template carouselSlide
+            ><img src="/images/img14.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+          <ng-template carouselSlide
+            ><img src="/images/img7.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+          <ng-template carouselSlide
+            ><img src="/images/img8.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+          <ng-template carouselSlide
+            ><img src="/images/img9.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+          <ng-template carouselSlide
+            ><img src="/images/img10.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+          <ng-template carouselSlide
+            ><img src="/images/img11.avif" class="w-full h-[300px]" alt=""
+          /></ng-template>
+        </owl-carousel-o>
+      </div>
+      <!-- right Sidebar -->
+      <div class="hidden md:flex flex-col md:col-span-1 rounded-lg">
+        <img
+          src="/images/slider-image-1.jpeg"
+          class="h-[140px] mb-[20px] rounded-lg"
+          alt=""
+        />
+        <img
+          src="/images/slider-image-2.jpeg"
+          class="h-[140px] rounded-lg"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <owl-carousel-o [options]="customOptions">
+    @for (cat of categories(); track cat._id) {
+    <ng-template carouselSlide>
+      <img
+        [src]="cat.image"
+        class="md:size-44 md:rounded-lg"
+        [alt]="cat.name"
+      />
+      <h3 class="text-black font-semibold text-center mt-1">{{ cat.name }}</h3>
+    </ng-template>
+    }
+  </owl-carousel-o>
+</section>
+
+<section class="container px-4 py-6 my-12">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- More Reasons to Shop -->
+    <div class="bg-white p-4 rounded-lg shadow-2xl border border-gray-300">
+      <h2 class="text-lg font-bold mb-4">More reasons to shop</h2>
+      <div class="grid grid-cols-2">
+        <div class="p-2 rounded-lg">
+          <img
+            src="/New folder/iphone.avif"
+            alt="Local Finds"
+            class="rounded-lg mb-2"
+          />
+        </div>
+        <div class="p-2 rounded-lg">
+          <img
+            src="/New folder/laptob.avif"
+            alt="Local Finds"
+            class="rounded-lg mb-2"
+          />
+        </div>
+        <div class="p-2 rounded-lg">
+          <img
+            src="/New folder/airfrer.avif"
+            alt="Local Finds"
+            class="rounded-lg mb-2"
+          />
+        </div>
+        <div class="p-2 rounded-lg">
+          <img
+            src="/New folder/oxi.avif"
+            alt="Local Finds"
+            class="rounded-lg mb-2"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Mega Deals -->
+    <div class="bg-yellow-100 p-4 rounded-lg shadow-2xl">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-bold">Mega deals</h2>
+        <button class="bg-black text-white px-3 py-1 text-xs rounded-lg">
+          ALL DEALS
+        </button>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <!-- Deal 1 -->
+        <div class="bg-white p-2 rounded-lg shadow">
+          <img
+            src="/New folder/jens.jpg"
+            alt="Fashion"
+            class="rounded-lg my-2 w-full h-32 object-contain"
+          />
+          <h3 class="text-sm">Levis & Trendyol</h3>
+          <p class="font-bold text-sm">Up to 75% off</p>
+        </div>
+        <!-- Deal 2 -->
+        <div class="bg-white p-2 rounded-lg shadow">
+          <img
+            src="/New folder/phone (1).jpg"
+            alt="Mobile"
+            class="rounded-lg my-2 w-full h-32 object-contain"
+          />
+          <h3 class="text-sm">Samsung Galaxy M34</h3>
+          <p class="text-xs line-through text-gray-500">10999</p>
+          <p class="font-bold text-sm text-red-500">9799 EGP</p>
+        </div>
+        <!-- Deal 3 -->
+        <div class="bg-white p-2 rounded-lg shadow">
+          <img
+            src="/New folder/child.jpg"
+            alt="Baby"
+            class="rounded-lg my-2 w-full h-32 object-contain"
+          />
+          <h3 class="text-sm">Baby Furnishing</h3>
+          <p class="font-bold text-sm">Up to 30% off</p>
+        </div>
+        <!-- Deal 4 -->
+        <div class="bg-white p-2 rounded-lg shadow">
+          <img
+            src="/New folder/noki.jpg"
+            alt="Phone"
+            class="rounded-lg my-1 w-full h-32 object-contain"
+          />
+          <h3 class="text-sm">Panasonic Phone</h3>
+          <p class="text-xs line-through text-gray-500">2300</p>
+          <p class="font-bold text-sm text-red-500">1848 EGP</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- In Focus -->
+    <div class="bg-white p-4 rounded-lg shadow-2xl border border-gray-300">
+      <h2 class="text-xl font-bold mb-4">In focus</h2>
+      <div class="space-y-4">
+        <img
+          src="/New folder/clary.avif"
+          alt="Promo 1"
+          class="rounded-lg shadow"
+        />
+        <img
+          src="/New folder/clary2.avif"
+          alt="Promo 2"
+          class="rounded-lg shadow"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-8">
+  <h2 class="text-4xl py-3 uppercase text-center">
+    Recommended <span class="text-red-700">for you</span>
+  </h2>
+  <!-- <input
+    [(ngModel)]="searchQuery"
+    class="bg-gray-50 my-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-[50%] mx-auto p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    type="search"
+    placeholder="Search by name..."
+  /> -->
+  <div class="container">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      @for (product of products().slice(0,12) ; track product.id) {
+      <div
+        class="card border border-gray-200 rounded-md overflow-hidden shadow-xl p-2 relative"
+      >
+        <div>
+          <div [routerLink]="['/details', product.id]" class="card-img">
+            <img
+              [src]="product.imageCover"
+              class="w-full h-[270px] object-contain"
+              [alt]="product.title"
+            />
+          </div>
+          <div class="card-body p-2 bg-gray-200 rounded-t-md">
+            <div class="flex items-center justify-between">
+              <h4 class="text-green-500 text-xs">
+                {{ product.category.name }}
+              </h4>
+              <div class="flex items-center gap-1">
+                <i class="fas fa-star text-green-600"></i>
+                <span class="text-black">{{ product.ratingsAverage }}</span>
+              </div>
+            </div>
+
+            <h3 class="font-semibold">
+              {{ product.title | termtext : 2 }}
+            </h3>
+            <div class="flex justify-between">
+              <h4 class="font-medium text-xl">{{ product.price }} EGP</h4>
+
+              <i
+                (click)="addWishlist(product.id)"
+                role="button"
+                class="fas fa-heart-circle-plus text-2xl text-gray-700 cursor-pointer"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <button
+          (click)="addCartItem(product.id)"
+          class="text-white bg-main-color hover:bg-orange-600 hover:text-white transition-colors duration-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-b-md text-sm px-4 py-2 text-center w-full mx-auto block"
+        >
+          Add To Cart
+        </button>
+      </div>
+      } @defer (on interaction) { @for (product of products().slice(13) ; track
+      product.id) {
+      <div
+        class="card border border-gray-200 rounded-md overflow-hidden shadow-xl p-2 relative"
+      >
+        <div>
+          <div [routerLink]="['/details', product.id]" class="card-img">
+            <img
+              [src]="product.imageCover"
+              class="w-full h-[270px] object-contain"
+              [alt]="product.title"
+            />
+          </div>
+          <div class="card-body p-2 bg-gray-200 rounded-t-md">
+            <div class="flex items-center justify-between">
+              <h4 class="text-green-500 text-xs">
+                {{ product.category.name }}
+              </h4>
+              <div class="flex items-center gap-1">
+                <i class="fas fa-star text-green-600"></i>
+                <span class="text-black">{{ product.ratingsAverage }}</span>
+              </div>
+            </div>
+
+            <h3 class="font-semibold">
+              {{ product.title | termtext : 2 }}
+            </h3>
+            <div class="flex justify-between">
+              <h4 class="font-medium text-xl">{{ product.price }} EGP</h4>
+
+              <i
+                (click)="addWishlist(product.id)"
+                role="button"
+                class="fas fa-heart-circle-plus text-2xl text-gray-700 cursor-pointer"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <button
+          (click)="addCartItem(product.id)"
+          class="text-white bg-main-color hover:bg-orange-600 hover:text-white transition-colors duration-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-b-md text-sm px-4 py-2 text-center w-full mx-auto block"
+        >
+          Add To Cart
+        </button>
+      </div>
+      } } @placeholder {
+      <div
+        class="bg-yellow-500 text-white py-4 w-1/2 mx-auto col-span-full text-center rounded-md"
+      >
+        <h2>Click here to Show more Products...</h2>
+      </div>
+      }
+    </div>
+  </div>
+</section>

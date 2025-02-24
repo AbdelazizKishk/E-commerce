@@ -1,0 +1,114 @@
+<section class="mt-4">
+  <div class="flex justify-between mb-6">
+    <h2 class="text-3xl font-semibold capitalize text-center">
+      All <span class="text-main-color">Products :</span>
+    </h2>
+    <input
+      [(ngModel)]="searchQuery"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-[50%] ms-auto p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      type="search"
+      placeholder="Search by name..."
+    />
+  </div>
+  <div class="container">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      @for (product of products.slice(0,12) | search:searchQuery ; track
+      product.id) {
+      <div
+        class="card border border-gray-200 rounded-md overflow-hidden shadow-xl p-2 relative"
+      >
+        <div>
+          <div [routerLink]="['/details', product.id]" class="card-img">
+            <img
+              [src]="product.imageCover"
+              class="w-full h-[270px] object-contain"
+              [alt]="product.title"
+            />
+          </div>
+          <div class="card-body p-2 bg-gray-200 rounded-t-md">
+            <div class="flex items-center justify-between">
+              <h4 class="text-green-500 text-xs">
+                {{ product.category.name }}
+              </h4>
+              <div class="flex items-center gap-1">
+                <i class="fas fa-star text-green-600"></i>
+                <span class="text-black">{{ product.ratingsAverage }}</span>
+              </div>
+            </div>
+
+            <h3 class="font-semibold">
+              {{ product.title | termtext : 2 }}
+            </h3>
+            <div class="flex justify-between">
+              <h4 class="font-medium text-xl">{{ product.price }} EGP</h4>
+
+              <i
+                (click)="addWishlist(product.id)"
+                role="button"
+                class="fas fa-heart-circle-plus text-2xl text-gray-700 cursor-pointer"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <button
+          (click)="addCartItem(product.id)"
+          class="text-white bg-main-color hover:bg-orange-600 hover:text-white transition-colors duration-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-b-md text-sm px-4 py-2 text-center w-full mx-auto block"
+        >
+          Add To Cart
+        </button>
+      </div>
+      } @defer (on interaction) { @for (product of products.slice(13) |
+      search:searchQuery ; track product.id) {
+      <div
+        class="card border border-gray-200 rounded-md overflow-hidden shadow-xl p-2 relative"
+      >
+        <div>
+          <div [routerLink]="['/details', product.id]" class="card-img">
+            <img
+              [src]="product.imageCover"
+              class="w-full h-[270px] object-contain"
+              [alt]="product.title"
+            />
+          </div>
+          <div class="card-body p-2 bg-gray-200 rounded-t-md">
+            <div class="flex items-center justify-between">
+              <h4 class="text-green-500 text-xs">
+                {{ product.category.name }}
+              </h4>
+              <div class="flex items-center gap-1">
+                <i class="fas fa-star text-green-600"></i>
+                <span class="text-black">{{ product.ratingsAverage }}</span>
+              </div>
+            </div>
+
+            <h3 class="font-semibold">
+              {{ product.title | termtext : 2 }}
+            </h3>
+            <div class="flex justify-between">
+              <h4 class="font-medium text-xl">{{ product.price }} EGP</h4>
+
+              <i
+                (click)="addWishlist(product.id)"
+                role="button"
+                class="fas fa-heart-circle-plus text-2xl text-gray-700 cursor-pointer"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <button
+          (click)="addCartItem(product.id)"
+          class="text-white bg-main-color hover:bg-orange-600 hover:text-white transition-colors duration-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-b-md text-sm px-4 py-2 text-center w-full mx-auto block"
+        >
+          Add To Cart
+        </button>
+      </div>
+      } } @placeholder {
+      <div
+        class="bg-yellow-500 text-white py-4 w-1/2 mx-auto col-span-full text-center rounded-md"
+      >
+        <h2>Click here to Show more Products...</h2>
+      </div>
+      }
+    </div>
+  </div>
+</section>

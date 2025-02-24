@@ -1,0 +1,26 @@
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+  @for (brand of allBrands ; track $index) {
+  <div class="grid gap-4">
+    <button
+      [routerLink]="['/brandproducts', brand._id]"
+      class="bg-main-bg rounded-md flex items-center gap-3 border-4 border-black cursor-pointer"
+    >
+      <div>
+        <img
+          class="h-[80px] max-w-[100px] rounded-l-md"
+          [src]="brand.image"
+          alt=""
+        />
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold">{{ brand.name }}</h2>
+        <a
+          (click)="getSpecificBrands(brand._id)"
+          class="text-blue-700 font-semibold"
+          >Visit The Store <i class="fa-solid fa-angle-right"></i>
+        </a>
+      </div>
+    </button>
+  </div>
+  }
+</div>

@@ -1,0 +1,55 @@
+<section class="bg-main-bg p-4 rounded border-2 shadow-md w-[75%] mx-auto">
+  <h2 class="text-main-color text-4xl text-center font-bold">Shop Cart</h2>
+  <h3 class="font-bold text-2xl py-4">
+    Total Cart Price :
+    <span class="text-red-700">{{
+      cartDetails.totalCartPrice | currency : "GBP"
+    }}</span>
+  </h3>
+  <button
+    (click)="clearAllItems()"
+    class="bg-red-700 text-white text-xl rounded px-4 py-2 block ms-auto"
+  >
+    Clear Cart
+  </button>
+  @for (product of cartDetails.products; track product.product._id) {
+  <div class="grid md:grid-cols-[10%_minmax(0,1fr)] gap-4 border-b my-2">
+    <div>
+      <img
+        [src]="product.product.imageCover"
+        class="w-full h-[130px] object-contain"
+        [alt]="product.product.title"
+      />
+    </div>
+    <div class="flex justify-between items-center">
+      <div>
+        <h2 class="font-semibold">Title : {{ product.product.title }}</h2>
+        <h3 class="font-semibold">
+          Price : {{ product.price | currency : "GBP" }}
+        </h3>
+        <button
+          (click)="removeSpecificItem(product.product.id)"
+          class="border-2 p-1 border-gray-300"
+        >
+          <i class="fa-solid fa-trash text-red-600"></i> Remove
+        </button>
+      </div>
+      <div class="flex gap-3 items-center">
+        <button (click)="updateItem(product.product.id, product.count + 1)">
+          <i class="fa-solid fa-square-plus text-2xl"></i>
+        </button>
+        <h3>{{ product.count }}</h3>
+        <button (click)="updateItem(product.product.id, product.count - 1)">
+          <i class="fa-solid fa-square-minus text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+  <button
+    [routerLink]="['/checkout', cartDetails._id]"
+    class="bg-green-700 text-white text-xl rounded px-4 py-2"
+  >
+    Payment
+  </button>
+</section>

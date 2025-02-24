@@ -1,0 +1,144 @@
+<section class="bg-main-bg p-4 rounded border-2 shadow-md md:w-[60%] mx-auto">
+  <h1 class="text-main-color text-center text-4xl">Checkout</h1>
+  <form [formGroup]="checkOutForm" (ngSubmit)="submitForm()">
+    <div class="mb-3">
+      @let detailsCantrol = checkOutForm.get('details');
+      <label
+        for="details"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >
+        Details</label
+      >
+      <textarea
+        formControlName="details"
+        id="details"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        required
+      ></textarea>
+      @if (detailsCantrol?.errors && detailsCantrol?.touched) {
+      <div
+        class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-300 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >Ensure that these requirements are met:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if (detailsCantrol?.getError('required')) {
+            <li>Please enter your Details</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      @let phoneCantrol = checkOutForm.get('phone');
+      <label
+        for="phone"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >
+        Phone</label
+      >
+      <input
+        formControlName="phone"
+        type="tel"
+        id="phone"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        required
+      />
+      @if (phoneCantrol?.errors && phoneCantrol?.touched) {
+      <div
+        class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-300 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >Ensure that these requirements are met:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if (phoneCantrol?.getError('required')) {
+            <li>Please enter your phone</li>
+            }@else if (phoneCantrol?.getError('pattern')) {
+            <li>Please enter a valid phone</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      @let cityCantrol = checkOutForm.get('city');
+      <label
+        for="city"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >
+        City</label
+      >
+      <input
+        formControlName="city"
+        type="text"
+        id="city"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        required
+      />
+      @if (cityCantrol?.errors && cityCantrol?.touched) {
+      <div
+        class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-300 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >Ensure that these requirements are met:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if (cityCantrol?.getError('required')) {
+            <li>Please enter your City</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+    <button class="bg-green-700 text-white text-xl rounded px-4 py-2">
+      Online Payment
+    </button>
+  </form>
+</section>

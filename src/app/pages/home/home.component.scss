@@ -1,0 +1,29 @@
+
+.card{
+  button{
+    transform: translateY(150%);
+    transition: all .5s;
+  }
+  &:hover{
+    button{
+      transform: translateY(0);
+    }
+  }
+}
+::ng-deep .owl-dots {
+  display: flex !important;
+  position: absolute !important;
+  bottom: 10px !important; /* Adjust this for different positions */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 1000;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+::ng-deep .owl-theme .owl-dots .owl-dot span{
+  width: 17px;
+  height: 4px;
+}
+
+
+

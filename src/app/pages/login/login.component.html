@@ -1,0 +1,130 @@
+<section class="flex items-center">
+  <div class="w-1/4 ms-auto">
+    <img src="/images/login.jpg" alt="" />
+  </div>
+
+  <div class="w-1/2 ms-auto bg-main-bg p-4 rounded border-2 shadow-md">
+    <h1 class="text-3xl font-medium text-center text-main-color">
+      {{ "login.loginNow" | translate }}
+    </h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+      <div class="mb-3">
+        @let emailControl = loginForm.get('email');
+        <label
+          for="email"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          {{ "login.email" | translate }}</label
+        >
+        <input
+          formControlName="email"
+          type="email"
+          id="email"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Abdelaziz19@gmail.com"
+          required
+        />
+        @if (emailControl?.errors && emailControl?.touched) {
+        <div
+          class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-300 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          <svg
+            class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          <span class="sr-only">Danger</span>
+          <div>
+            <span class="font-medium"
+              >Ensure that these requirements are met:</span
+            >
+            <ul class="mt-1.5 list-disc list-inside">
+              @if (emailControl?.getError('required')) {
+              <li>Please enter your email address.</li>
+              }@else if (emailControl?.getError('email')) {
+              <li>
+                Please enter a valid email address (e.g., examplemail.com)
+              </li>
+              }
+            </ul>
+          </div>
+        </div>
+        }
+      </div>
+      <div class="mb-3">
+        @let passwordControl = loginForm.get("password");
+        <label
+          for="password"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          {{ "login.password" | translate }}</label
+        >
+        <input
+          formControlName="password"
+          type="password"
+          id="password"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        />
+        @if (passwordControl?.errors && passwordControl?.touched ) {
+        <div
+          class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-200 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          <svg
+            class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          <span class="sr-only">Danger</span>
+          <div>
+            <span class="font-medium"
+              >Ensure that these requirements are met:</span
+            >
+            <ul class="mt-1.5 list-disc list-inside">
+              @if (passwordControl?.getError('required')) {
+              <li>Password is required</li>
+              } @else if (passwordControl?.getError('pattern')) {
+              <li>Please enter a valid Password</li>
+              }
+            </ul>
+          </div>
+        </div>
+        }
+      </div>
+      <div class="flex justify-end items-center gap-4">
+        <a class="text-blue-700" routerLink="/forgot">ForgotPassword</a>
+        <button [disabled]="isLoading" type="submit" class="btn-main">
+          {{ "login.signIn" | translate }} @if (isLoading) {<span
+            ><i class="fas fa-spin fa-spinner"></i></span
+          >}
+        </button>
+      </div>
+      @if (msgError) {
+      <p class="bg-red-500 text-white px-2 py-4 text-center border">
+        {{ msgError }}
+      </p>
+      } @if (isSuccess) {
+      <p class="bg-green-500 text-white px-2 py-4 text-center border">
+        {{
+          "Welcome back, 🎉 We're glad to have you here. Let’s make shopping swift and easy! 🛒"
+        }}
+      </p>
+      }
+    </form>
+  </div>
+</section>
