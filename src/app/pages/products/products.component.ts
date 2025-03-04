@@ -36,6 +36,7 @@ export class ProductsComponent implements OnInit {
     this.cartService.addProductToCart(id).subscribe({
       next: (res) => {
         console.log(res);
+        this.cartService.countCartNumber.set(res.numOfCartItems);
         this.toastrService.success(
           '🛒 Your item is now in the cart! Happy shopping! 🎉',
           'Swift Cart'
