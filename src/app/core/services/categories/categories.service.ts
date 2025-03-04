@@ -15,10 +15,10 @@ export class CategoriesService {
   getSpecificCategories(id: string | null): Observable<any> {
     return this.http.get(`${environment.baseUrl}/api/v1/categories/${id}`);
   }
-  getAllSubcategories(): Observable<any> {
+  /* getAllSubcategories(): Observable<any> {
     return this.http.get(`${environment.baseUrl}/api/v1/subcategories`);
   }
   getSpecificSubCategory(id: string): Observable<any> {
     return this.http.get(`${environment.baseUrl}/api/v1/subcategories/${id}`);
-  }
+  } */
 }

@@ -1,28 +1,23 @@
 <section>
   <div class="p-4 rounded-md grid md:grid-cols-4 gap-y-10 gap-x-5">
-    @for (Categ of allCategories(); track Categ._id) {
-
     <div
-      [routerLink]="['/categoriesDetails', Categ._id]"
       class="card bg-white border-2 rounded-lg overflow-hidden shadow-2xl p-4 relative hover:border-main-color"
     >
       <div class="card-img">
         <img
           class="h-52 w-full object-contain py-1 border-b-2"
-          [src]="Categ.image"
-          [alt]="Categ.name"
+          [src]="detailesCat.image"
+          [alt]="detailesCat.name"
         />
       </div>
       <div class="card-body p-2 rounded-t-md">
         <div>
-          <h2 class="text-2xl font-bold">{{ Categ.name }}</h2>
+          <h2 class="text-2xl font-bold">{{ detailesCat.name }}</h2>
           <p class="mb-3 font-semibold text-main-color dark:text-gray-400">
-            {{ Categ.slug }}
+            {{ detailesCat.slug }}
           </p>
         </div>
       </div>
     </div>
-
-    }
   </div>
 </section>

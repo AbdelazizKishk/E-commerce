@@ -8,7 +8,6 @@ import {
 import { CategoriesService } from '../../core/services/categories/categories.service';
 import { Icategories } from '../../shared/interfaces/icategories';
 import { RouterLink } from '@angular/router';
-
 @Component({
   selector: 'app-categories',
   imports: [RouterLink],
@@ -20,25 +19,15 @@ export class CategoriesComponent implements OnInit {
 
   // allCategories: Icategories[] = [];
   allCategories: WritableSignal<Icategories[]> = signal([]);
-  subCategories: Icategories[] = [];
 
   ngOnInit(): void {
     this.getAllCategories();
-    this.getSubcategories();
   }
   getAllCategories(): void {
     this.categoriesService.getAllCategories().subscribe({
       next: (res) => {
         console.log(res.data);
         this.allCategories.set(res.data);
-      },
-    });
-  }
-  getSubcategories(): void {
-    this.categoriesService.getAllSubcategories().subscribe({
-      next: (res) => {
-        console.log(res.data);
-        this.subCategories = res.data;
       },
     });
   }

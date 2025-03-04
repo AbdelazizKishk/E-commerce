@@ -79,18 +79,18 @@ export const routes: Routes = [
         title: 'Brand Products',
       },
       {
-        path: 'subcategories',
-        loadComponent: () =>
-          import('./pages/subcategories/subcategories.component').then(
-            (m) => m.SubcategoriesComponent
-          ),
-        title: 'Categories-Product',
-      },
-      {
         path: 'categories',
         loadComponent: () =>
           import('./pages/categories/categories.component').then(
             (m) => m.CategoriesComponent
+          ),
+        title: 'Categories',
+      },
+      {
+        path: 'categoriesDetails/:id',
+        loadComponent: () =>
+          import('./pages/detailscategories/detailscategories.component').then(
+            (m) => m.DetailscategoriesComponent
           ),
         title: 'Categories',
       },
