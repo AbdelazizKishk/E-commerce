@@ -1,12 +1,10 @@
-<section class="flex items-center">
-  <div class="w-1/4 ms-auto">
-    <img src="/images/regster.jpg" class="size-96" alt="" />
-  </div>
-  <div class="w-1/2 ms-auto bg-main-bg p-4 rounded border-2 shadow-md">
+<section class="flex flex-col-reverse md:flex-row items-center px-4 md:px-0">
+  <div
+    class="w-full md:w-1/2 md:me-36 bg-main-bg p-4 rounded border-2 shadow-md"
+  >
     <h1 class="text-3xl font-medium text-center text-main-color">
       Register Now
     </h1>
-
     <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
       <div class="mb-3">
         @let nameControl = registerForm.get('name');
@@ -280,6 +278,10 @@
           ><i class="fas fa-spin fa-spinner"></i></span
         >}
       </button>
+      <h4>
+        You have an account?
+        <a class="text-blue-700" routerLink="/login">Sign In</a>
+      </h4>
       @if (msgError) {
       <p class="bg-red-500 text-white px-2 py-4 text-center border">
         {{ msgError }}
@@ -292,5 +294,8 @@
       </p>
       }
     </form>
+  </div>
+  <div class="md:w-1/4">
+    <img src="/images/regster.jpg" class="md:size-[450px]" alt="" />
   </div>
 </section>

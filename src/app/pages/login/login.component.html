@@ -1,9 +1,7 @@
-<section class="flex items-center">
-  <div class="w-1/4 ms-auto">
-    <img src="/images/login.jpg" alt="" />
-  </div>
-
-  <div class="w-1/2 ms-auto bg-main-bg p-4 rounded border-2 shadow-md">
+<section class="flex flex-col-reverse md:flex-row items-center px-4 md:px-0">
+  <div
+    class="w-full md:w-1/2 md:me-36 bg-main-bg p-4 rounded border-2 shadow-md"
+  >
     <h1 class="text-3xl font-medium text-center text-main-color">
       {{ "login.loginNow" | translate }}
     </h1>
@@ -106,14 +104,18 @@
         </div>
         }
       </div>
-      <div class="flex justify-end items-center gap-4">
-        <a class="text-blue-700" routerLink="/forgot">ForgotPassword</a>
+      <div class="flex items-center gap-4 py-2">
         <button [disabled]="isLoading" type="submit" class="btn-main">
           {{ "login.signIn" | translate }} @if (isLoading) {<span
             ><i class="fas fa-spin fa-spinner"></i></span
           >}
         </button>
+        <a class="text-blue-700" routerLink="/forgot">ForgotPassword</a>
       </div>
+      <span
+        >Don’t have an account yet?
+        <a class="text-blue-700" routerLink="/register">Sign up</a></span
+      >
       @if (msgError) {
       <p class="bg-red-500 text-white px-2 py-4 text-center border">
         {{ msgError }}
@@ -126,5 +128,8 @@
       </p>
       }
     </form>
+  </div>
+  <div class="md:w-1/4">
+    <img class="md:size-[400px]" src="/images/login.jpg" alt="login" />
   </div>
 </section>
